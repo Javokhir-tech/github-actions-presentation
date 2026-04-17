@@ -1,15 +1,9 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches: [ '**' ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-
-permissions:
-  contents: read
-  packages: write
 
 jobs:
   build-and-test:
@@ -38,13 +32,6 @@ jobs:
 
       - name: Run tests
         run: mvn test
-
-      - name: Upload test results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results-${{ github.run_id }}
-          path: target/surefire-reports/
 
   package:
     name: Package Docker Image
