@@ -69,7 +69,6 @@ class TodoServiceTest {
 
     @Test
     void testGetTodoCount() {
-        assertEquals(0, 1);
 
         todoService.createTodo(new Todo(null, "Todo 1", "Description 1"));
         todoService.createTodo(new Todo(null, "Todo 2", "Description 2"));
